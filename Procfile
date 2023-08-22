@@ -1,1 +1,1 @@
-web: gunicorn trendtalk.wsgi
+web: gunicorn MyBlog.wsgi
