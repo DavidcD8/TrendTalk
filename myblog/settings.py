@@ -24,7 +24,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['trendtalk-010e54eb3de6.herokuapp.com',
                  '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
 # Application definition
 
 INSTALLED_APPS = [
