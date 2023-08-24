@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount ',
+    'allauth.socialaccount',
     'trendtalk',
 ]
 
