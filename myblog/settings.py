@@ -28,6 +28,13 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
 # Application definition
 
+AUTHENTICATION_BACKENDS = [
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+LOGIN_URL = 'account_login'
+LOGOUT_URL = 'account_logout'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +46,9 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'django_summernote',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount ',
     'trendtalk',
 ]
 

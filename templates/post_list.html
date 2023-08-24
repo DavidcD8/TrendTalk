@@ -1,12 +1,29 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-<h1>Post List</h1>
-<ul>
-  {% for post in posts %}
-  <li>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.content }}</p>
-    <!-- You can display other post information here -->
-  </li>
-  {% endfor %}
-</ul>
+<div class="row">
+  <div class="col-md-8">
+    {% for post in posts %}
+    <div class="post animate__animated animate__fadeIn">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <!-- Removed the <p> tag here -->
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a
+                href="post_detail.html"
+                class="btn btn-sm btn-outline-secondary"
+                >Read more</a
+              >
+            </div>
+            <small class="text-muted">{{ post.created_on }}</small>
+          </div>
+          <div class="mt-2">
+            <span class="text-muted">Author: {{ post.author }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
