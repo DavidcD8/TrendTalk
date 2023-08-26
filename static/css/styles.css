@@ -1,7 +1,21 @@
 /* styles.css */
 
+.my-custom-navbar {
+    background-color: #2c3e50;
+    color: #fff;
+}
 
-/* Apply Bootstrap card styles */
+.my-custom-body {
+    background-color: #f5f5f5;
+    /* Change this to your desired background color */
+    color: #333;
+}
+
+body.my-custom-body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
 .post-card {
     border: none;
     margin-bottom: 20px;

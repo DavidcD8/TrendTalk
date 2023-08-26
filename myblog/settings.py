@@ -82,7 +82,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myblog.wsgi.application'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

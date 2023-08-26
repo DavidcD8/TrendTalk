@@ -11,4 +11,5 @@ urlpatterns = [
     path('accounts/profile/', profile, name='account_profile'),
     path('post/<int:pk>/', post_detail, name='post_detail'),
     path('', post_list, name='post_list'),
+
 ]
