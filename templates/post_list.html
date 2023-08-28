@@ -1,21 +1,30 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/article-list.css' %}"
+/>
+
+<h1>Articles</h1>
+<hr />
 <div class="row">
   <div class="col-md-8">
     {% for post in posts %}
-    <div class="post animate__animated animate__fadeIn">
+    <div class="post animate__animated animate__fadeIn fade-in">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
           <h2 class="card-title">{{ post.title }}</h2>
-          <!-- Removed the <p> tag here -->
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="post-details">
             <div class="btn-group">
-                <a href="{% url 'post_detail' post.pk %}" class="btn btn-sm btn-outline-secondary">Read more</a>
- </a
+              <a
+                href="{% url 'post_detail' post.slug %}"
+                class="btn btn-sm btn-primary"
+                >Read more</a
               >
             </div>
             <small class="text-muted">{{ post.created_on }}</small>
           </div>
-          <div class="mt-2">
+          <div class="post-author">
             <span class="text-muted">Author: {{ post.author }}</span>
           </div>
         </div>
@@ -24,4 +33,8 @@
     {% endfor %}
   </div>
 </div>
+
+<div class="separator"></div>
+<!-- Add a separator between posts and other content -->
+
 {% endblock %}

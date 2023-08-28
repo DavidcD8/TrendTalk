@@ -1,31 +1,89 @@
 /* styles.css */
 
-.my-custom-navbar {
-    background-color: #2c3e50;
-    color: #fff;
+body {
+    background-color: #dae0e6;
 }
 
-.my-custom-body {
-    background-color: #f5f5f5;
-    /* Change this to your desired background color */
-    color: #333;
+
+
+/* Custom styles for the navbar */
+.navbar-light .navbar-brand {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: x-large;
 }
 
-body.my-custom-body {
-    background-color: #f5f5f5;
-    color: #333;
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+    font-size: large;
+
 }
 
-.post-card {
-    border: none;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(243, 224, 16);
+    font-family: 'Playfair Display', serif;
+
 }
 
-.post-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-    transition: box-shadow 0.3s, transform 0.3s;
+.bg-light {
+    background-color: #1176ba !important;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(243, 224, 16);
+    font-family: 'Playfair Display', serif;
+
+}
+
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+    color: #fafafa;
+}
+
+.navbar-nav .nav-item .nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f0b52d;
+    /* Color of the underline */
+    transform: scaleX(0);
+    /* Start with no underline */
+    transform-origin: center center;
+    transition: transform 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #4dd128;
+    /* Hover link color */
+    transform: translateY(-3px);
+    /* Lift the link slightly on hover */
+}
+
+/* Align navbar items to the right */
+.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+
+/* Adjust padding between navbar items */
+.navbar-nav.ml-auto .nav-item {
+    margin-right: 15px;
+    /* Adjust as needed */
+}
+
+
+.navbar-nav .nav-item .nav-link:hover:before {
+    transform: scaleX(1);
+    /* Expand the underline on hover */
 }
 
 /* Apply fade-in animation */
@@ -43,4 +101,293 @@ body.my-custom-body {
 
 .animated {
     animation: fade-in 0.5s ease-in-out forwards;
+}
+
+#-------------------post-Details------------------------------------------
+
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color for the entire page */
+body {
+    background-color: #dae0e6;
+    /* Light gray background */
+}
+
+/* Style the container */
+.container {
+    padding: 20px;
+}
+
+/* Style the card */
+.card {
+    border: none;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the post title */
+.post-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    /* Dark text color */
+}
+
+/* Style the post subtitle */
+.post-subtitle {
+    font-size: 14px;
+    color: #666;
+    /* Slightly darker text color */
+    margin-bottom: 15px;
+}
+
+/* Divider between post and comments */
+.post-divider {
+    border-top: 1px solid #ccc;
+    /* Light gray divider line */
+    margin-top: 30px;
+    padding-top: 20px;
+}
+
+/* Style the like and comment counts */
+.card-footer {
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-like {
+    color: #ff4500;
+    /* Reddit upvote color */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.text-secondary {
+    color: #888;
+    /* Lighter text color */
+    margin-right: 10px;
+}
+
+/* Style the comments section */
+.comment-box {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.comment-name {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #1a1a1a;
+    /* Dark text color */
+}
+
+.comment-date {
+    color: #888;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+/* Style the comment submission form */
+.comment-form {
+    margin-top: 25px;
+}
+
+.btn-signup {
+    background-color: #ff4500;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style alerts */
+.alert {
+    background-color: #f2f2f2;
+    /* Light gray alert background */
+    color: #1a1a1a;
+    /* Dark text color */
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+/* Style form input elements */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Style submit button */
+button[type="submit"] {
+    background-color: #ff4500;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+    .col-md-8,
+    .col-md-4 {
+        padding: 0;
+    }
+}
+
+
+.asteriskField {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+#-------------------------------Profile------------------------------
+
+/* Custom styles for the profile page */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-welcome {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.comments-list {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    margin: 5px 0;
+}
+
+.comment hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#------------------------Post-List-Page-------------------------
+
+/* Styles for the article list */
+.post {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.post.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #1176ba;
+    border-color: #1176ba;
+    color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0e609b;
+    border-color: #0e609b;
+}
+
+.text-muted {
+    color: #999;
+}
+
+.post-author {
+    margin-top: 5px;
+    font-size: 14px;
 }

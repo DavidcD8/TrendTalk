@@ -9,7 +9,8 @@ if os.path.isfile("env.py"):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,7 +23,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['trendtalk-010e54eb3de6.herokuapp.com',
-                 '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
+                 '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myblog.wsgi.application'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -135,6 +135,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 

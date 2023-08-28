@@ -1,15 +1,20 @@
 from django.contrib import admin
-from django.urls import path
-from django_summernote import urls as django_summernote_urls
 from django.urls import path, include
-from trendtalk.views import post_list, post_detail, profile
+from trendtalk import views
+from django.urls import path
+from trendtalk.views import profile
+from trendtalk import views
+from trendtalk.views import PostListView, PostDetailView, profile
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('summernote/', include(django_summernote_urls)),
-    path('accounts/', include('allauth.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    path('', views.PostListView.as_view(), name='home'),
+    path("accounts/", include("allauth.urls")),
     path('accounts/profile/', profile, name='account_profile'),
-    path('post/<int:pk>/', post_detail, name='post_detail'),
-    path('', post_list, name='post_list'),
+    path('like/<slug:slug>', views.PostLikeView.as_view(), name='post_like'),
+    path('post/<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
+    path('', PostListView.as_view(), name='post_list'),
 
 ]
