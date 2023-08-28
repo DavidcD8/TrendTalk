@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/animate.min.css' %}" />
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h1 class="profile-welcome animate__animated animate__fadeInUp">
+            Welcome, {{ user.username }}!
+        </h1>
+        <p>Your Profile</p>
+    </div>
+    <div class="comments-list">
+        <h2 class="animate__animated animate__fadeIn">Liked Posts</h2>
+        {% for liked_post in user.blogpost_like.all %}
+        <div class="comment animate__animated animate__fadeIn">
+            <p>
+                <strong>Post: </strong><a href="{% url 'post_detail' liked_post.slug %}">{{ liked_post.title }}</a>
+            </p>
+            <p><strong>Created On: </strong>{{ liked_post.created_on }}</p>
+            <hr />
+        </div>
+        {% endfor %}
+    </div>
+    <div class="comments-list">
+        <h2 class="animate__animated animate__fadeIn">Commented Posts</h2>
+        {% for comment in user_comments %}
+        <div class="comment animate__animated animate__fadeIn">
+            <p>
+                <strong>Post: </strong><a href="{% url 'post_detail' comment.post.slug %}">{{ comment.post.title }}</a>
+            </p>
+            <p><strong>Comment: </strong>{{ comment.body }}</p>
+            <p><strong>Created On: </strong>{{ comment.created_on }}</p>
+            <hr />
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
