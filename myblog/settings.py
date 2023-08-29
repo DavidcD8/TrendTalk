@@ -23,7 +23,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['trendtalk-010e54eb3de6.herokuapp.com',
-                 '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com', 'localhost']
+                 '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com']
@@ -138,7 +138,7 @@ USE_TZ = True
 STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
