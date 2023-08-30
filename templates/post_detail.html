@@ -1,107 +1,87 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% load static %} {%
-block content %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/custom-styles.css' %}"
-/>
-
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
 <div class="masthead">
-  <div class="container">
-    <div class="row g-0">
-      <div class="col-md-6 masthead-text">
-        <h1 class="post-title">{{ post.title }}</h1>
-        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-      </div>
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6 masthead-text">
+                <h1 class="post-title">{{ post.title }}</h1>
+                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4 mt-3">
-      <div class="card-body">
-        <p class="card-text">{{ post.content | safe }}</p>
-      </div>
-    </div>
-  </div>
-  <hr class="post-divider" />
-  <div class="row">
-    <div class="col">
-      <strong>
-        <form
-          class="d-inline"
-          action="{% url 'post_like' post.slug %}"
-          method="POST"
-        >
-          {% csrf_token %} {% if liked %}
-          <button
-            type="submit"
-            name="blogpost_id"
-            value="{{post.slug}}"
-            class="btn-like"
-          >
-            <i class="fas fa-heart"></i>
-          </button>
-          {% else %}
-          <button
-            type="submit"
-            name="blogpost_id"
-            value="{{post.slug}}"
-            class="btn-like"
-          >
-            <i class="far fa-heart"></i>
-          </button>
-          {% endif %}
-        </form>
-        <span class="text-secondary">{{ post.number_of_likes }} likes</span>
-      </strong>
-      <strong class="text-secondary"
-        ><i class="far fa-comments"></i> {{ comments.count }} comments</strong
-      >
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8 card mb-4 mt-3">
-      <h3>Comments:</h3>
-      <div class="card-body">
-        {% for comment in comments %}
-        <div class="comments" style="padding: 10px">
-          <p class="font-weight-bold">
-            {{ comment.name }}
-            <span class="text-muted font-weight-normal">
-              {{ comment.created_on }}
-            </span>
-            wrote:
-          </p>
-          {{ comment.body | linebreaks }}
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <div class="card-body">
+                <p class="card-text">{{ post.content | safe }}</p>
+            </div>
         </div>
-        <hr class="comment-divider" />
-        <!-- Separator between comments -->
-        {% endfor %}
-      </div>
     </div>
-
-    <div class="col-md-8 card mb-4 mt-3">
-      <h3>Add a comment:</h3>
-      <div class="card-body">
-        {% if commented %}
-        <div class="alert alert-success" role="alert">
-          Your comment is awaiting approval
+    <hr class="post-divider" />
+    <div class="row">
+        <div class="col">
+            <strong>
+                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                    {% csrf_token %} {% if liked %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    {% else %}
+                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    {% endif %}
+                </form>
+                <span class="text-secondary">{{ post.number_of_likes }} likes</span>
+            </strong>
+            <strong class="text-secondary"><i class="far fa-comments"></i> {{ comments.count }} comments</strong>
         </div>
-        {% else %} {% if user.is_authenticated %}
-        <p>Commenting as: {{ user.username }}</p>
-        <form method="post" class="comment-form">
-          {% csrf_token %} {{ comment_form | crispy }}
-          <button type="submit" class="btn btn-signup btn-lg">
-            Submit Comment
-          </button>
-        </form>
-        {% endif %} {% endif %}
-      </div>
     </div>
-  </div>
+    <div class="col-md-8 card mb-4 mt-3">
+        <h3 class="comment-title">Add a comment:</h3>
+        <div class="card-body comment-form">
+            {% if commented %}
+            <div class="alert alert-success" role="alert">
+                Your comment is awaiting approval
+            </div>
+            {% else %} {% if user.is_authenticated %}
+            <p class="commenting-as">Commenting as: {{ user.username }}</p>
+            <form method="post" class="comment-form">
+                {% csrf_token %} {{ comment_form | crispy }}
+                <button type="submit" class="btn-submit-comment">
+                    Submit Comment
+                </button>
+            </form>
+            {% endif %} {% endif %}
+        </div>
+    </div>
 </div>
-
+</div>
+<div class="row">
+<div class="col-md-8 card mb-4 mt-3">
+    <h3 class="comment-title">Comments:</h3>
+<div class="comments-section">
+    {% for comment in comments %}
+    <div class="comment-box">
+        <div class="comment-user-photo">
+            <img src="{{ comment.user.profile.profile_image.url }}" alt="{{ comment.user.username }}'s Profile Photo">
+        </div>
+        <div class="comment-content">
+            <p class="comment-author">
+                {{ comment.name }}
+                <span class="comment-timestamp">{{ comment.created_on }}</span>
+                wrote:
+            </p>
+            <p class="comment-body">{{ comment.body | linebreaks }}</p>
+        </div>
+    </div>
+    <hr class="comment-divider" />
+    {% endfor %}
+</div>
+</div>
 {% endblock %}
+   

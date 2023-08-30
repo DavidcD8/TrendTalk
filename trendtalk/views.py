@@ -89,6 +89,15 @@ class PostLikeView(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+class PostUnlikeView(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        return redirect('post_detail', slug=slug)
+
+
 @login_required
 def profile(request):
     user_comments = Comment.objects.filter(email=request.user.email)

@@ -1,7 +1,130 @@
 /* styles.css */
 
+
+.profile-photo-frame {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ccc;
+    float: right;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* To make the image circular within the frame */
+}
+
+
+
+/* Custom styles for the navbar */
+.navbar-light .navbar-brand {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: x-large;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+    font-size: large;
+    font-family: "Your Modern Font", sans-serif;
+
+}
+
+.navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(243, 224, 16);
+    font-family: "Your Modern Font", sans-serif;
+}
+
+.bg-light {
+    background-color: #23a5b7 !important;
+    font-family: "Your Modern Font", sans-serif;
+}
+
+.navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgb(243, 224, 16);
+    font-family: 'Playfair Display', serif;
+
+}
+
+.navbar-nav .nav-item .nav-link {
+    position: relative;
+    transition: color 0.3s, transform 0.3s;
+    color: #fafafa;
+}
+
+.navbar-nav .nav-item .nav-link:before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    /* Color of the underline */
+    transform: scaleX(0);
+    /* Start with no underline */
+    transform-origin: center center;
+    transition: transform 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #f5cc45;
+    /* Hover link color */
+    transform: translateY(-3px);
+    /* Lift the link slightly on hover */
+}
+
+/* Align navbar items to the right */
+.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+
+/* Adjust padding between navbar items */
+.navbar-nav.ml-auto .nav-item {
+    margin-right: 15px;
+    /* Adjust as needed */
+}
+
+
+.navbar-nav .nav-item .nav-link:hover:before {
+    transform: scaleX(1);
+    /* Expand the underline on hover */
+}
+
+/* Apply fade-in animation */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated {
+    animation: fade-in 0.5s ease-in-out forwards;
+}
+
+#-------------------post-Details------------------------------------------
+/* styles.css */
+
 body {
-    background-color: #dae0e6;
+    background-color: #f2f3f4;
     font-family: "Your Modern Font", sans-serif;
 }
 
@@ -143,7 +266,7 @@ ol {
 
 /* Set a background color for the entire page */
 body {
-    background-color: #dae0e6;
+    background-color: #eff0f0;
     /* Light gray background */
 }
 
@@ -217,19 +340,50 @@ body {
     padding: 20px 0;
 }
 
+.comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.comment-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
 .comment-name {
     font-weight: bold;
-    margin-right: 10px;
+    margin-bottom: 5px;
     color: #1a1a1a;
     /* Dark text color */
 }
 
 .comment-date {
     color: #888;
+    font-size: 12px;
 }
 
 .comment-body {
-    margin-top: 10px;
+    margin-top: 5px;
+    color: #1a1a1a;
+    /* Dark text color */
 }
 
 /* Style the comment submission form */
@@ -267,9 +421,20 @@ textarea {
     margin-bottom: 15px;
 }
 
-/* Style submit button */
+.btn-like:hover {
+    background-color: #e81010;
+}
+
+.btn-submit-comment {
+    background-color: #23a5b7 !important;
+}
+
+.btn-submit-comment:hover {
+    background-color: #e81010 !important;
+}
+
 button[type="submit"] {
-    background-color: #ff4500;
+    background-color: #8b8b8b;
     color: #fff;
     padding: 12px 25px;
     border: none;
@@ -286,14 +451,29 @@ button[type="submit"] {
     }
 }
 
-
 .asteriskField {
     display: none;
 }
 
+.comment-user-photo {
+    width: 40px;
+    /* Set the desired width */
+    height: 40px;
+    /* Set the desired height */
+    margin-right: 10px;
+    /* Adjust the spacing if needed */
+    border-radius: 50%;
+    /* Make the image circular */
+    overflow: hidden;
+    /* Hide any overflow */
+}
 
-
-
+.comment-user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the container */
+}
 
 
 
@@ -373,6 +553,200 @@ button[type="submit"] {
         transform: translateY(0);
     }
 }
+
+#------------------------edit_profile---------------------------
+
+/* Custom styles for the edit profile page */
+.profile-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.profile-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="file"],
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#------------------------Post-List-Page-------------------------
+
+/* Styles for the article list */
+.post {
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.post.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.post-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #23a5b7;
+    border-color: #23a5b7;
+    color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #23a5b7;
+    border-color: #23a5b7;
+}
+
+.text-muted {
+    color: #999;
+}
+
+.post-author {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+#-------------------------------Profile------------------------------
+
+/* Custom styles for the post detail page */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.post-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.featured-image-frame {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.featured-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+.post-title {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.comments-list {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    margin: 5px 0;
+}
+
+.comment hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 #------------------------edit_profile---------------------------
 

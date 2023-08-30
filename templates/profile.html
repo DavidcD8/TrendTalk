@@ -52,14 +52,18 @@
       class="comment animate__animated animate__fadeIn"
       style="margin-bottom: 10px"
     >
-      <p>
-        <strong>Post: </strong
-        ><a href="{% url 'post_detail' comment.post.slug %}"
-          >{{ comment.post.title }}</a
-        >
-      </p>
-      <p><strong>Comment: </strong>{{ comment.body }}</p>
-      <p><strong>Created On: </strong>{{ comment.created_on }}</p>
+      <div class="comment-info">
+        <img
+          src="{{ comment.user.profile.profile_image.url }}"
+          alt="{{ comment.user.username }}'s Profile Photo"
+          class="user-photo"
+        />
+        <p class="comment-name">
+          {{ comment.name }}
+          <span class="comment-date">{{ comment.created_on }}</span> wrote:
+        </p>
+      </div>
+      <p class="comment-body">{{ comment.body }}</p>
       <hr />
     </div>
     {% endfor %}
