@@ -21,6 +21,7 @@
       </div>
       {% endif %}
     </div>
+
     <div class="profile-info">
       <h1 class="profile-welcome animate__animated animate__fadeInUp">
         Welcome, {{ user.username }}!
@@ -40,7 +41,7 @@
           >{{ liked_post.title }}</a
         >
       </p>
-      <p><strong>Created On: </strong>{{ liked_post.created_on }}</p>
+      <p><strong>&nbsp;Created On: </strong>{{ liked_post.created_on }}</p>
       <hr />
     </div>
     {% endfor %}
@@ -50,14 +51,16 @@
     {% for comment in user_comments %}
     <div
       class="comment animate__animated animate__fadeIn"
-      style="margin-bottom: 10px"
+      style="margin-bottom: 20px"
     >
       <div class="comment-info">
-        <img
-          src="{{ comment.user.profile.profile_image.url }}"
-          alt="{{ comment.user.username }}'s Profile Photo"
-          class="user-photo"
-        />
+        <div class="user-photo-frame">
+          <img
+            src="{{ comment.user.profile.profile_image.url }}"
+            alt="{{ comment.user.username }}'s Profile Photo"
+            class="user-photo"
+          />
+        </div>
         <p class="comment-name">
           {{ comment.name }}
           <span class="comment-date">{{ comment.created_on }}</span> wrote:
@@ -65,8 +68,15 @@
       </div>
       <p class="comment-body">{{ comment.body }}</p>
       <hr />
+      <p>
+        <strong> &nbsp;on Post: </strong
+        ><a href="{% url 'post_detail' comment.post.slug %}"
+          >{{ comment.post.title }}</a
+        >
+      </p>
     </div>
     {% endfor %}
   </div>
+
+  {% endblock %}
 </div>
-{% endblock %}

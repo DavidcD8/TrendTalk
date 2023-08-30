@@ -457,33 +457,17 @@ button[type="submit"] {
 
 .comment-user-photo {
     width: 40px;
-    /* Set the desired width */
     height: 40px;
-    /* Set the desired height */
     margin-right: 10px;
-    /* Adjust the spacing if needed */
     border-radius: 50%;
-    /* Make the image circular */
     overflow: hidden;
-    /* Hide any overflow */
-}
-
-.comment-user-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Maintain aspect ratio and cover the container */
 }
 
 
 
 
 
-
-#-------------------------------Profile------------------------------
-
-/* Custom styles for the profile page */
-.profile-container {
+#-------------------------------Profile------------------------------ .profile-container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
@@ -554,10 +538,29 @@ button[type="submit"] {
     }
 }
 
-#------------------------edit_profile---------------------------
 
-/* Custom styles for the edit profile page */
-.profile-container {
+.comment-user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-photo-frame {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+#------------------------edit_profile--------------------------- .profile-container {
     max-width: 500px;
     margin: 0 auto;
     padding: 30px;
