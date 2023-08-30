@@ -129,4 +129,5 @@ def edit_profile(request):
 @login_required
 def settings(request):
     # Your view logic here
-    return render(request, 'settings.html')  # Replace with the actual template name
+    # Replace with the actual template name
+    return render(request, 'settings.html')

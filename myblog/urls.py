@@ -18,6 +18,6 @@ urlpatterns = [
     path('', PostListView.as_view(), name='post_list'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('profile/', views.profile, name='profile'),
-    path('settings/', views.settings, name='settings'),   
+    path('settings/', views.settings, name='settings'),
 
 ]

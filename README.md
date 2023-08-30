@@ -104,3 +104,41 @@ The application includes security measures such as CSRF protection and password 
 - [Python](https://www.python.org/): The programming language used to write the application's logic.
 - [GitHub](https://github.com/): The platform used for version control and collaboration.
 - [Youtube](https://www.youtube.com/watch?v=_P_-gum7rio): for profile Photo guidance
+
+# Deploying TrendTalk Blog to Heroku
+
+- Prepare Your Project
+
+  - Ensure your project has the necessary files:
+  - requirements.txt to list required Python packages.
+  - Procfile to specify how Heroku should run your app.
+
+- Set Up Version Control
+
+  - Make sure your project is under version control using Git.
+  - Initialize a Git repository if needed:bashCopy codegit init git add . git commit -m "Initial commit"
+
+- Login to Heroku
+
+  - If you don't have a Heroku account, sign up at Heroku.
+  - Use the Heroku CLI to log in:bashCopy codeheroku login
+
+- Create a New Heroku App
+
+  - Create a new Heroku app with a name of your choice:bashCopy codeheroku create your-app-name
+
+- Configure GitHub Deployment
+
+  - Connect your Heroku app to your GitHub repository from the Heroku dashboard.
+  - Enable automatic deployment from your desired branch.
+
+- Configure Environment Variables
+
+  - Set environment variables like SECRET_KEY, DEBUG, and others in the Heroku app settings.
+
+- Deploy Your App
+
+  - Trigger a manual deployment from the Heroku dashboard or let Heroku automatically deploy when changes are pushed to the connected GitHub repository.
+
+- Configure the Database
+  - Configure the database on Heroku. If using PostgreSQL, add a Heroku Postgres database:bashCopy codeheroku addons:create heroku-postgresql:hobby-dev
