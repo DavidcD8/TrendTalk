@@ -2,6 +2,8 @@
 
 - Overview
 - Features
+- Technology
+- Requirements
 - Getting Started
 - Database
 - Static Files and Media
@@ -14,9 +16,49 @@ The TrendTalk Blog application is a Django-based web application that enables us
 
 # Features
 
-- Create, edit, and delete blog posts.
-- View a list of all blog posts on the home page.
-- Read individual blog posts in detail.
+- Create, edit, and delete blog posts
+- User authentication and registration using Django-Allauth
+- Stylish frontend using Bootstrap 5 and Django-Crispy-Forms
+- Cloud storage for images using Cloudinary and Dj3-Cloudinary-Storage
+- Rich text editing with Django-Summernote
+- PostgreSQL database for data storage
+
+# Technologies Used
+
+- Django 3.2.20
+- Django-Allauth 0.55.0
+- Django-Bootstrap5 23.3
+- Django-Crispy-Forms 1.14.0
+- Django-Summernote 0.8.20.0
+- Gunicorn 21.2.0
+- Cloudinary 1.34.0
+- Dj3-Cloudinary-Storage 0.0.6
+- PostgreSQL
+- HTML, CSS, JavaScript
+
+# Requirements
+
+The application requires the following packages and libraries to be installed:
+
+- Python 3.9 or later
+- Django 3.2.20
+- Django-Allauth 0.55.0
+- Django-Bootstrap5 23.3
+- Django-Crispy-Forms 1.14.0
+- Django-Summernote 0.8.20.0
+- Gunicorn 21.2.0
+- Cloudinary 1.34.0
+- Dj3-Cloudinary-Storage 0.0.6
+- PostgreSQL database
+- Pillow 10.0.0
+- Psycopg2 2.9.7
+- PyJWT 2.8.0
+- Python3-OpenID 3.2.0
+- OAuthLib 3.2.2
+- Pytz 2023.3
+- Requests-OAuthLib 1.3.1
+- Sqlparse 0.4.4
+- Urllib3 1.26.16
 
 # Getting Started
 
@@ -37,7 +79,7 @@ To set up and run the TrendTalk Blog application locally, follow these steps:
 
 - Copy code
   python manage.py runserver
-- Access the application in your web browser at http://127.0.0.1:8000/.
+- Access the application in your web browser at <http://127.0.0.1:8000/>.
 
 # Database
 
@@ -51,12 +93,10 @@ Static files (CSS, JavaScript, etc.) and media files are managed using Cloudinar
 
 The application includes security measures such as CSRF protection and password validation. Ensure that the environment variables are kept secret and the application is not run in debug mode in a production environment.
 
-
-# Credits & # Acknowledgments
-
+# Credits & Acknowledgments
 
 - [Code Institute](https://codeinstitute.net/):I would like to extend my heartfelt thanks to the Code Institute for providing the project classes that were instrumental in developing the TrendTalk Blog application.
-- [CI] For providing 
+- [CI] For providing
 - [Django](https://www.djangoproject.com/): The web framework used to build this application.
 - [Cloudinary](https://cloudinary.com/): The cloud-based platform used for managing static files and media.
 - [dj_database_url](https://pypi.org/project/dj-database-url/): A package for configuring the database using environment variables.
@@ -64,4 +104,3 @@ The application includes security measures such as CSRF protection and password 
 - [Python](https://www.python.org/): The programming language used to write the application's logic.
 - [GitHub](https://github.com/): The platform used for version control and collaboration.
 - [Youtube](https://www.youtube.com/watch?v=_P_-gum7rio): for profile Photo guidance
-Special thanks to the open-source community for providing valuable resources, documentation, and support that helped make this project possible.
