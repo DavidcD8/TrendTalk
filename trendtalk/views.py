@@ -1,10 +1,18 @@
+from .forms import ProfilePhotoForm  # Import your ProfilePhotoForm
+from django.contrib.auth.forms import UserChangeForm
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
-from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
-from trendtalk.models import Comment
+from django.contrib.auth import login
+from django.contrib import messages
+from .models import Post, Comment
+from .forms import CommentForm, ProfilePhotoForm
+from django.shortcuts import redirect
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from .forms import ProfilePhotoForm
+from .models import Profile
 
 
 class PostListView(generic.ListView):
@@ -85,3 +93,40 @@ class PostLikeView(View):
 def profile(request):
     user_comments = Comment.objects.filter(email=request.user.email)
     return render(request, 'profile.html', {'user_comments': user_comments})
+
+
+@login_required
+def edit_profile(request):
+    current_user = request.user
+
+    try:
+        profile = Profile.objects.get(user=current_user)
+    except Profile.DoesNotExist:
+        # If the profile doesn't exist, create one
+        profile = Profile.objects.create(user=current_user)
+
+    if request.method == 'POST':
+        user_form = UserChangeForm(request.POST, instance=current_user)
+        profile_form = ProfilePhotoForm(
+            request.POST, request.FILES, instance=profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, "Your Profile has been updated!")
+            return redirect("edit_profile")
+    else:
+        user_form = UserChangeForm(instance=current_user)
+        profile_form = ProfilePhotoForm(instance=profile)
+
+    return render(
+        request,
+        "edit_profile.html",
+        {"user_form": user_form, "profile_form": profile_form},
+    )
+
+
+@login_required
+def settings(request):
+    # Your view logic here
+    return render(request, 'settings.html')  # Replace with the actual template name

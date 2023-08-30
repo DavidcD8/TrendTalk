@@ -50,3 +50,18 @@ Static files (CSS, JavaScript, etc.) and media files are managed using Cloudinar
 # Security
 
 The application includes security measures such as CSRF protection and password validation. Ensure that the environment variables are kept secret and the application is not run in debug mode in a production environment.
+
+
+# Credits & # Acknowledgments
+
+
+- [Code Institute](https://codeinstitute.net/):I would like to extend my heartfelt thanks to the Code Institute for providing the project classes that were instrumental in developing the TrendTalk Blog application.
+- [CI] For providing 
+- [Django](https://www.djangoproject.com/): The web framework used to build this application.
+- [Cloudinary](https://cloudinary.com/): The cloud-based platform used for managing static files and media.
+- [dj_database_url](https://pypi.org/project/dj-database-url/): A package for configuring the database using environment variables.
+- [Bootstrap](https://getbootstrap.com/): The front-end framework for styling the application.
+- [Python](https://www.python.org/): The programming language used to write the application's logic.
+- [GitHub](https://github.com/): The platform used for version control and collaboration.
+- [Youtube](https://www.youtube.com/watch?v=_P_-gum7rio): for profile Photo guidance
+Special thanks to the open-source community for providing valuable resources, documentation, and support that helped make this project possible.

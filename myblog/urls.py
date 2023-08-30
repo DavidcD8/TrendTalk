@@ -16,5 +16,8 @@ urlpatterns = [
     path('like/<slug:slug>', views.PostLikeView.as_view(), name='post_like'),
     path('post/<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
     path('', PostListView.as_view(), name='post_list'),
+    path('edit_profile/', views.edit_profile, name='edit_profile'),
+    path('profile/', views.profile, name='profile'),
+    path('settings/', views.settings, name='settings'),   
 
 ]

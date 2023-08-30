@@ -8,15 +8,32 @@
 
 <div class="profile-container">
   <div class="profile-header">
-    <h1 class="profile-welcome animate__animated animate__fadeInUp">
-      Welcome, {{ user.username }}!
-    </h1>
-    <p>Your Profile</p>
+    <div class="profile-photo-frame">
+      {% if request.user.profile.profile_image %}
+      <img
+        src="{{ request.user.profile.profile_image.url }}"
+        alt="{{ request.user.username }}'s Profile Photo"
+        class="profile-photo"
+      />
+      {% else %}
+      <div class="default-profile-photo">
+        <span>No profile photo yet.</span>
+      </div>
+      {% endif %}
+    </div>
+    <div class="profile-info">
+      <h1 class="profile-welcome animate__animated animate__fadeInUp">
+        Welcome, {{ user.username }}!
+      </h1>
+    </div>
   </div>
-  <div class="comments-list">
+  <div class="comments-list" style="margin-top: 20px">
     <h2 class="animate__animated animate__fadeIn">Liked Posts</h2>
     {% for liked_post in user.blogpost_like.all %}
-    <div class="comment animate__animated animate__fadeIn">
+    <div
+      class="comment animate__animated animate__fadeIn"
+      style="margin-bottom: 10px"
+    >
       <p>
         <strong>Post: </strong
         ><a href="{% url 'post_detail' liked_post.slug %}"
@@ -28,10 +45,13 @@
     </div>
     {% endfor %}
   </div>
-  <div class="comments-list">
+  <div class="comments-list" style="margin-top: 20px">
     <h2 class="animate__animated animate__fadeIn">Commented Posts</h2>
     {% for comment in user_comments %}
-    <div class="comment animate__animated animate__fadeIn">
+    <div
+      class="comment animate__animated animate__fadeIn"
+      style="margin-bottom: 10px"
+    >
       <p>
         <strong>Post: </strong
         ><a href="{% url 'post_detail' comment.post.slug %}"
