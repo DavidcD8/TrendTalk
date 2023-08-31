@@ -18,12 +18,19 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    /* To make the image circular within the frame */
+
 }
 
+.navbar-toggler {
+    background-color: #ffffff;
+    border: none;
 
+}
 
-/* Custom styles for the navbar */
+.navbar-toggler-icon {
+    color: #1a1a1a;
+}
+
 .navbar-light .navbar-brand {
     color: rgba(255, 255, 255, 0.9);
     font-size: x-large;
@@ -72,38 +79,32 @@
     width: 100%;
     height: 2px;
     background-color: #ffffff;
-    /* Color of the underline */
     transform: scaleX(0);
-    /* Start with no underline */
     transform-origin: center center;
     transition: transform 0.3s;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
     color: #f5cc45;
-    /* Hover link color */
     transform: translateY(-3px);
-    /* Lift the link slightly on hover */
+
 }
 
-/* Align navbar items to the right */
+
 .navbar-nav.ml-auto {
     margin-left: auto;
 }
 
-/* Adjust padding between navbar items */
 .navbar-nav.ml-auto .nav-item {
     margin-right: 15px;
-    /* Adjust as needed */
+
 }
 
 
 .navbar-nav .nav-item .nav-link:hover:before {
     transform: scaleX(1);
-    /* Expand the underline on hover */
 }
 
-/* Apply fade-in animation */
 @keyframes fade-in {
     from {
         opacity: 0;
