@@ -1,3 +1,4 @@
+from .forms import CommentForm
 from .forms import ProfilePhotoForm  # Import your ProfilePhotoForm
 from django.contrib.auth.forms import UserChangeForm
 from django.shortcuts import render, get_object_or_404, reverse
@@ -24,7 +25,6 @@ class PostListView(generic.ListView):
 
 
 class PostDetailView(View):
-
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -32,6 +32,12 @@ class PostDetailView(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+
+        # Get the most recent posts excluding the current post
+        related_posts = Post.objects.filter(status=1).exclude(
+            slug=post.slug).order_by("-created_on")[:5]
+
+        print("Related Posts Query:", related_posts.query)
 
         return render(
             request,
@@ -41,7 +47,8 @@ class PostDetailView(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "related_posts": related_posts
             },
         )
 

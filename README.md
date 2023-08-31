@@ -104,6 +104,7 @@ The application includes security measures such as CSRF protection and password 
 - [Python](https://www.python.org/): The programming language used to write the application's logic.
 - [GitHub](https://github.com/): The platform used for version control and collaboration.
 - [Youtube](https://www.youtube.com/watch?v=_P_-gum7rio): for profile Photo guidance
+- [Djanog-wbesite](https://forum.djangoproject.com/t/django-how-to-connect-user-profile-model-with-comment-model-for-showing-data-from-user-profile/9134): user profile photo on comments
 
 # Deploying TrendTalk Blog to Heroku
 

@@ -560,6 +560,35 @@ button[type="submit"] {
 
 }
 
+/* Style for the right sidebar */
+.sidebar {
+    float: right;
+    width: 30%;
+    margin-left: 20px;
+}
+
+/* Style for each related post */
+.related-post {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.related-post-title {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.related-post-date {
+    color: #888;
+    font-size: 12px;
+}
+
+
+.clear {
+    clear: both;
+}
+
 #------------------------edit_profile--------------------------- .profile-container {
     max-width: 500px;
     margin: 0 auto;
