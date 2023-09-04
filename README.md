@@ -142,4 +142,7 @@ The application includes security measures such as CSRF protection and password 
   - Trigger a manual deployment from the Heroku dashboard or let Heroku automatically deploy when changes are pushed to the connected GitHub repository.
 
 - Configure the Database
-  - Configure the database on Heroku. If using PostgreSQL, add a Heroku Postgres database:bashCopy codeheroku addons:create heroku-postgresql:hobby-dev
+  - Configure the database on Heroku. 
+  
+## Deployed website Link
+https://trendtalk-010e54eb3de6.herokuapp.com
