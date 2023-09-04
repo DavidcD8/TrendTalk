@@ -10,10 +10,10 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     follows = models.ManyToManyField("self",
                                      related_name="followed_by",
-                                     symmetrical=False,  # Corrected symmetrical attribute
+                                     symmetrical=False,
                                      blank=True)
 
-    date_modified = models.DateField(auto_now=True)  # Moved inside the class
+    date_modified = models.DateField(auto_now=True)
     profile_image = models.ImageField(null=True, blank=True)
 
     def __str__(self):

@@ -5,8 +5,8 @@ from django.urls import path
 from trendtalk.views import profile
 from trendtalk import views
 from trendtalk.views import PostListView, PostDetailView, profile, PostLikeView, PostUnlikeView
-
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
@@ -23,3 +23,6 @@ urlpatterns = [
     path('post/<slug:slug>/unlike/', PostUnlikeView.as_view(), name='post_unlike'),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

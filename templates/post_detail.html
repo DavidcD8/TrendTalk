@@ -2,31 +2,42 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+<div class="contain-all2">
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
+                <div class="comment-user-photo">
+                    <img src="{{ user.profile.profile_image.url }}" alt="{{ user.username }}'s Profile Photo">
+                </div>
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
         </div>
     </div>
 </div>
+</div>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
-            <div class="card-body">
-                <p class="card-text">{{ post.content | safe }}</p>
+        <div class="col-md-8">
+            <div class="mb-4 mt-3">
+                <div class="card-body2">
+                    <p class="card-text">{{ post.content | safe }}</p>
+                </div>
             </div>
         </div>
     </div>
-    <hr class="post-divider" />
+    <br>
+    <br>
+<hr>
     <div class="row">
         <div class="col">
             <strong>
                 <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                    {% csrf_token %} {% if liked %}
+                    {% csrf_token %}
+                    {% if liked %}
                     <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
                         <i class="fas fa-heart"></i>
                     </button>
@@ -41,28 +52,35 @@
             <strong class="text-secondary"><i class="far fa-comments"></i> {{ comments.count }} comments</strong>
         </div>
     </div>
-    <div class="col-md-8 card mb-4 mt-3">
+    
+    <hr>
+    <div class="contain-all2">
+    <div class="col-md-8">
         <h3 class="comment-title">Add a comment:</h3>
-        <div class="card-body comment-form">
+        <div class="comment-form">
             {% if commented %}
             <div class="alert alert-success" role="alert">
                 Your comment is awaiting approval
             </div>
-            {% else %} {% if user.is_authenticated %}
+            {% else %}
+            {% if user.is_authenticated %}
             <p class="commenting-as">Commenting as: {{ user.username }}</p>
             <form method="post" class="comment-form">
-                {% csrf_token %} {{ comment_form | crispy }}
+                {% csrf_token %}
+                {{ comment_form | crispy }}
                 <button type="submit" class="btn-submit-comment">
-                    Submit Comment
+                    Post Comment
                 </button>
             </form>
-            {% endif %} {% endif %}
+            {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>
-</div>
+<br>
+<div class="contain-all3">
 <div class="row">
-    <div class="col-md-8 card mb-4 mt-3">
+    <div class="col-md-8">
         <h3 class="comment-title">Comments:</h3>
         <div class="comments-section">
             {% for comment in comments %}
@@ -80,30 +98,23 @@
                     <p class="comment-body">{{ comment.body | linebreaks }}</p>
                 </div>
             </div>
+            {% if not forloop.last %}
             <hr class="comment-divider" />
+            {% endif %}
             {% endfor %}
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8">
             <!-- Main content of the post -->
-            <!-- ... -->
-        </div>
-        <div class="col-md-4 sidebar">
-            <div class="related-posts">
-                <h3>Related Posts</h3>
-                {% for post in related_posts %}
-                <div class="related-post">
-                    <h4 class="related-post-title"><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h4>
-                    <p class="related-post-date">{{ post.created_on|date:"F d, Y" }}</p>
-                </div>
-                {% endfor %}
-            </div>
         </div>
     </div>
     <div class="clear"></div>
 </div>
-
-    </div>
-    {% endblock %}
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from .forms import CommentForm
-from .forms import ProfilePhotoForm  # Import your ProfilePhotoForm
+from .forms import ProfilePhotoForm
 from django.contrib.auth.forms import UserChangeForm
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import ProfilePhotoForm
 from .models import Profile
+from trendtalk.models import Post
 
 
 class PostListView(generic.ListView):
@@ -33,11 +34,9 @@ class PostDetailView(View):
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
-        # Get the most recent posts excluding the current post
-        related_posts = Post.objects.filter(status=1).exclude(
-            slug=post.slug).order_by("-created_on")[:5]
-
-        print("Related Posts Query:", related_posts.query)
+        # Get the latest 10 posts for the sidebar
+        latest_posts = Post.objects.filter(
+            status=1).order_by('-created_on')[:10]
 
         return render(
             request,
@@ -48,7 +47,8 @@ class PostDetailView(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
-                "related_posts": related_posts
+                # To show the latest post on the post detail page.
+                "latest_posts": latest_posts,
             },
         )
 
@@ -144,6 +144,10 @@ def edit_profile(request):
 
 @login_required
 def settings(request):
-    # Your view logic here
-    # Replace with the actual template name
     return render(request, 'settings.html')
+
+
+def your_page_view(request):
+    latest_posts = Post.objects.order_by('-created_on')[:10]
+    context = {'latest_posts': latest_posts}
+    return render(request, 'your_page_template.html', context)
