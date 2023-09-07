@@ -8,9 +8,9 @@
 <div class="profile-container">
   <div class="profile-header">
     <div class="profile-photo-frame">
-      {% if request.user.profile.profile_image %}
+      {% if request.user.profile.profile_photo %}
       <img
-        src="{{ request.user.profile.profile_image.url }}"
+        src="{{ request.user.profile.profile_photo.url }}"
         alt="{{ request.user.username }}'s Profile Photo"
         class="profile-photo"
       />
@@ -54,11 +54,13 @@
     >
       <div class="comment-info">
         <div class="user-photo-frame">
+          {% if request.user.profile.profile_photo %}
           <img
-            src="{{ comment.user.profile.profile_image.url }}"
-            alt="{{ comment.user.username }}'s Profile Photo"
-            class="user-photo"
+            src="{{ request.user.profile.profile_photo.url }}"
+            alt="{{ request.user.username }}'s Profile Photo"
+            class="profile-photo"
           />
+          {% endif %}
         </div>
         <p class="comment-name">
           {{ comment.name }}

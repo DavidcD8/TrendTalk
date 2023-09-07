@@ -2,19 +2,16 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    follows = models.ManyToManyField("self",
-                                     related_name="followed_by",
-                                     symmetrical=False,
-                                     blank=True)
-
+    follows = models.ManyToManyField(
+        "self", related_name="followed_by", symmetrical=False, blank=True)
     date_modified = models.DateField(auto_now=True)
-    profile_image = models.ImageField(null=True, blank=True)
+    profile_photo = CloudinaryField('image', null=True, blank=True)
+
 
     def __str__(self):
         return self.user.username

@@ -1,5 +1,10 @@
+from .forms import ProfileEditForm
+from .models import Comment
+from django.shortcuts import render
+from .models import Post
+from django.urls import reverse
+from django.shortcuts import redirect, get_object_or_404
 from .forms import CommentForm
-from .forms import ProfilePhotoForm
 from django.contrib.auth.forms import UserChangeForm
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
@@ -8,11 +13,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib import messages
 from .models import Post, Comment
-from .forms import CommentForm, ProfilePhotoForm
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from .forms import ProfilePhotoForm
 from .models import Profile
 from trendtalk.models import Post
 
@@ -63,11 +66,13 @@ class PostDetailView(View):
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
+            comment_form.instance.user = request.user
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+
         else:
             comment_form = CommentForm()
 
@@ -84,16 +89,15 @@ class PostDetailView(View):
         )
 
 
-class PostLikeView(View):
+@login_required
+def post_like(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
 
-    def post(self, request, slug, *args, **kwargs):
-        post = get_object_or_404(Post, slug=slug)
-        if post.likes.filter(id=request.user.id).exists():
-            post.likes.remove(request.user)
-        else:
-            post.likes.add(request.user)
-
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
 class PostUnlikeView(View):
@@ -107,39 +111,11 @@ class PostUnlikeView(View):
 
 @login_required
 def profile(request):
-    user_comments = Comment.objects.filter(email=request.user.email)
-    return render(request, 'profile.html', {'user_comments': user_comments})
-
-
-@login_required
-def edit_profile(request):
-    current_user = request.user
-
-    try:
-        profile = Profile.objects.get(user=current_user)
-    except Profile.DoesNotExist:
-        # If the profile doesn't exist, create one
-        profile = Profile.objects.create(user=current_user)
-
-    if request.method == 'POST':
-        user_form = UserChangeForm(request.POST, instance=current_user)
-        profile_form = ProfilePhotoForm(
-            request.POST, request.FILES, instance=profile)
-
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, "Your Profile has been updated!")
-            return redirect("edit_profile")
-    else:
-        user_form = UserChangeForm(instance=current_user)
-        profile_form = ProfilePhotoForm(instance=profile)
-
-    return render(
-        request,
-        "edit_profile.html",
-        {"user_form": user_form, "profile_form": profile_form},
-    )
+    user_comments = Comment.objects.filter(user=request.user)
+    context = {
+        'user_comments': user_comments,
+    }
+    return render(request, 'profile.html', context)
 
 
 @login_required
@@ -147,7 +123,21 @@ def settings(request):
     return render(request, 'settings.html')
 
 
-def your_page_view(request):
-    latest_posts = Post.objects.order_by('-created_on')[:10]
-    context = {'latest_posts': latest_posts}
-    return render(request, 'your_page_template.html', context)
+
+@login_required
+def edit_profile(request):
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            if form.cleaned_data.get('remove_photo'):
+                # Clear the profile photo (set it to None)
+                profile.profile_photo = None
+            form.save()
+            # Redirect to the user's profile page or another appropriate URL
+            return redirect('profile')
+    else:
+        form = ProfileEditForm(instance=profile)
+
+    return render(request, 'edit_profile.html', {'form': form})
