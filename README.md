@@ -142,7 +142,140 @@ The application includes security measures such as CSRF protection and password 
   - Trigger a manual deployment from the Heroku dashboard or let Heroku automatically deploy when changes are pushed to the connected GitHub repository.
 
 - Configure the Database
-  - Configure the database on Heroku. 
-  
+  - Configure the database on Heroku.
+
 ## Deployed website Link
-https://trendtalk-010e54eb3de6.herokuapp.com
+
+<https://trendtalk-010e54eb3de6.herokuapp.com>
+
+**Automated Testing Documentation**
+
+**Project Overview**
+
+- **Project Name**: TrendTalk
+- **Testing Scope**: Functionality, Usability, and Responsiveness
+- **Testing Goals**: Ensure that the website functions as expected, is user-friendly, and responsive on different devices and screen sizes.
+
+**Test Plan**
+
+**Functional Testing**
+
+Test Case 1: User Registration
+
+**Scenario**: Verify that users can successfully register for an account.
+
+- **Steps**:
+- Navigate to the registration page.
+- Fill in valid registration details.
+- Click the "Register" button.
+- Verify that the user is redirected to the profile page.
+
+  **Expected Outcome**: User registration is successful.
+
+Test Case 2: Post Creation
+
+**Scenario**: Test the ability to create a new post.
+
+**Steps**:
+
+- Log in as an admin .
+- Navigate to the "New Post" page.
+- Fill in post details.
+- Click the "Create Post" button.
+- Verify that the new post appears on the post list.
+
+**Expected Outcome**: Post creation is successful.
+
+**Usability Testing**
+
+Test Case 3: Navigation and User Experience
+
+**Scenario**: Evaluate the website's navigation and user experience.
+
+**Steps**:
+
+- Navigate through the website as a new user.
+- Assess the intuitiveness of the navigation menu.
+- Evaluate the readability and layout of content.
+
+  **Expected Outcome**: The website is user-friendly and intuitive.
+
+**Responsiveness Testing**
+
+Test Case 4: Mobile Device Compatibility
+
+**Scenario**: Test the website's responsiveness on mobile devices.
+
+**Steps**:
+
+- Access the website on various mobile devices.
+- Check for layout issues and readability.
+
+  **Expected Outcome**: The website is responsive and displays correctly on mobile devices.
+
+**Clicking Links in Liked and Commented Posts**
+
+Test Case 5: Links in Liked and Commented Posts
+
+**Scenario**: Test the functionality of clicking links in liked and commented posts.
+
+**Steps**:
+
+- Log in as a registered user.
+- Navigate to the "Liked Posts" section.
+- Click on a liked post's link.
+- Verify that the post detail page opens.
+- Repeat the above steps for the "Commented Posts" section.
+
+  **Expected Outcome**: Links in liked and commented posts lead to the respective post detail pages.
+
+**Liking a Post**
+
+Test Case 6: Liking Posts
+
+**Scenario**: Test the functionality of clicking the like button
+
+**Steps**:
+
+- **Log In**: If you haven't already, log in to your TrendTalk account.
+- **Explore Posts**: Browse the posts on the TrendTalk platform to find one you'd like to like.
+- Click on the post to view its details.
+- Find the heart-shaped "Like" button below the post.
+- Click the "Like" button to express your appreciation for the post.
+
+  **Expected Outcome**: The like counter should increase when pressing the like button
+
+**Commenting on a Post**
+
+Test Case 7: Comment on posts
+
+**Steps**:
+
+- **Log In**: Ensure you are logged in to your TrendTalk account.
+- **Find a Post**: Explore the platform and select a post you'd like to comment on.
+- Click on the post to access its details.
+- Scroll down to the comments section at the bottom of the post.
+- You'll find a comment box where you can type your comment.
+- Enter your comment and click the "Post Comment" button.
+
+  **Expected Outcome**: The user should wait for the admin to approve the post.
+
+**Test Results**
+
+**Functional Testing**:
+
+- Test Case 1: Passed
+- Test Case 2: Passed
+- Test Case 5: Passed
+- Test Case 6: Passed
+- Test Case 7: Passed
+
+  **Usability Testing**:
+
+- Test Case 3: Passed
+
+  **Responsiveness Testing**:
+
+- Test Case 4: Passed
+
+  **Links in Liked and Commented Posts**

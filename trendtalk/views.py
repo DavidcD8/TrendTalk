@@ -123,7 +123,6 @@ def settings(request):
     return render(request, 'settings.html')
 
 
-
 @login_required
 def edit_profile(request):
     profile = request.user.profile
