@@ -87,14 +87,14 @@
         <div class="comment-box">
             <div class="comment-user-photo">
         {% if comment.user.profile.profile_photo %}
-        <img src="{{ comment.user.profile.profile_photo.url }}" alt="{{ comment.user.username }}'s Profile Photo" />
+        <img src="{{ comment.user.profile.profile_photo.url }}"  alt="{{ comment.user.username }}'s Profile Photo" />
         {% endif %}</div>
             <div class="comment-content">
                 <p class="comment-author">
                     {{ comment.name }}
                     <span class="comment-timestamp">{{ comment.created_on }}</span>
                     wrote:
-                </p>
+                </p> 
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
             </div>
         </div>

@@ -514,6 +514,33 @@
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  }
 
+ .comment-info {
+     display: flex;
+     align-items: center;
+ }
+
+ .comment-details {
+     flex-grow: 1;
+ }
+
+ .user-photo-frame {
+     margin-right: 10px;
+ }
+
+ .profile-photo {
+     max-width: 50px;
+     max-height: 50px;
+     border-radius: 50%;
+ }
+
+ .comment-name {
+     margin: 0;
+ }
+
+ .comment-date {
+     color: #888;
+ }
+
  .comment p {
      margin: 5px 0;
  }

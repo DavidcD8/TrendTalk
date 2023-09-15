@@ -148,7 +148,7 @@ The application includes security measures such as CSRF protection and password 
 
 <https://trendtalk-010e54eb3de6.herokuapp.com>
 
-**Automated Testing Documentation**
+**Testing**
 
 **Project Overview**
 
@@ -277,5 +277,3 @@ Test Case 7: Comment on posts
   **Responsiveness Testing**:
 
 - Test Case 4: Passed
-
-  **Links in Liked and Commented Posts**
