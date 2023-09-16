@@ -1,3 +1,5 @@
+from django.http import Http404
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProfileEditForm
 from .models import Comment
 from django.shortcuts import render
@@ -140,3 +142,37 @@ def edit_profile(request):
         form = ProfileEditForm(instance=profile)
 
     return render(request, 'edit_profile.html', {'form': form})
+
+
+@login_required
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    # Retrieve the associated post
+    post = comment.post
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = CommentForm(instance=comment)
+
+    return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.user != request.user:
+        raise Http404("You do not have permission to delete this comment.")
+
+    if request.method == 'POST':
+        comment.delete()
+
+        return redirect('post_detail', slug=comment.post.slug)
+
+    return render(request, 'delete_comment.html', {'comment': comment})

@@ -21,6 +21,12 @@ urlpatterns = [
     path('settings/', views.settings, name='settings'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('post/<slug:slug>/like/', views.post_like, name='post_like'),
+    path('comment/<int:comment_id>/edit/',
+         views.edit_comment, name='edit_comment'),
+    path('comment/delete/<int:comment_id>/',
+         views.delete_comment, name='delete_comment'),
+
+
 ]
 
 if settings.DEBUG:

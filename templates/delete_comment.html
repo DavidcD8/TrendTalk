@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="confirmation-box">
+  <p class="confirmation-message">
+    Are you sure you want to delete this comment?
+  </p>
+  <form method="post" action="{% url 'delete_comment' comment.id %}">
+    {% csrf_token %}
+    <button class="delete-button" type="submit">Delete</button>
+  </form>
+</div>

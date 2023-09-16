@@ -96,6 +96,14 @@
                     wrote:
                 </p> 
                 <p class="comment-body">{{ comment.body | linebreaks }}</p>
+            <div class="comment-actions">
+                {% if user.is_authenticated and comment.user == user %}
+                <a class="action-button edit-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
+                <a class="action-button delete-button" href="{% url 'delete_comment' comment.id %}">Delete</a>
+                {% endif %}
+            </div>
+
+
             </div>
         </div>
 

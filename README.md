@@ -148,7 +148,7 @@ The application includes security measures such as CSRF protection and password 
 
 <https://trendtalk-010e54eb3de6.herokuapp.com>
 
-**Testing**
+## Testing
 
 **Project Overview**
 
