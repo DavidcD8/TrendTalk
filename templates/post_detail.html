@@ -9,9 +9,12 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">{{ post.title }}</h1>
+                {% if post.author.is_staff %}
                 <div class="comment-user-photo">
-                    <img src="{{ user.profile.profile_image.url }}" alt="{{ user.username }}'s Profile Photo">
+                    <img src="{{ post.author.profile.profile_photo.url }}" alt="{{ post.author.username }}'s Profile Photo">
                 </div>
+                {% endif %}
+
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
         </div>
