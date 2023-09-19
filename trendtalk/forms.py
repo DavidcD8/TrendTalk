@@ -1,8 +1,7 @@
 from django import forms
-from .models import Profile, Comment 
-from .models import Profile 
+from .models import Profile, Comment
+from .models import Profile
 from django.contrib.auth.models import User
- 
 
 
 class UserAdminForm(forms.ModelForm):

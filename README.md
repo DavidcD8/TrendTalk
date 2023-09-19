@@ -148,7 +148,7 @@ The application includes security measures such as CSRF protection and password 
 
 <https://trendtalk-010e54eb3de6.herokuapp.com>
 
-## Testing
+## Manual Testing
 
 **Project Overview**
 
@@ -277,3 +277,8 @@ Test Case 7: Comment on posts
   **Responsiveness Testing**:
 
 - Test Case 4: Passed
+
+## Bugs Fixed:
+
+- Error 500 :
+  - I Fixed by using the following guide from: <https://stackoverflow.com/questions/61184031/post-save-signal-for-specific-profile-model-for-user-registration>

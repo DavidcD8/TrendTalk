@@ -20,6 +20,11 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .models import Profile
 from trendtalk.models import Post
+from django.views import generic
+
+
+class WelcomeView(generic.TemplateView):
+    template_name = 'welcome.html'
 
 
 class PostListView(generic.ListView):

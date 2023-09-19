@@ -26,6 +26,7 @@ urlpatterns = [
     path('comment/delete/<int:comment_id>/',
          views.delete_comment, name='delete_comment'),
 
+    path('welcome/', views.WelcomeView.as_view(), name='welcome'),
 
 ]
 
