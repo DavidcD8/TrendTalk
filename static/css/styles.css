@@ -1,7 +1,7 @@
   .navbar-light .navbar-brand {
       color: rgba(255, 255, 255, 0.9);
       font-size: x-large;
-      font-family: 'Bruno Ace SC', cursive;
+      font-family: 'Play', sans-serif;
   }
 
 
@@ -20,7 +20,7 @@
   }
 
   .bg-light {
-      background-color: #23a5b7 !important;
+      background-color: #dc2c15 !important;
       font-family: "Your Modern Font", sans-serif;
   }
 
@@ -718,7 +718,6 @@
       box-sizing: border-box;
   }
 
-  /* Style the welcome container */
   .welcome-container {
       background-color: #111;
       color: #fff;
@@ -729,7 +728,6 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      /* Add padding to the container */
       overflow: hidden;
       position: relative;
   }
@@ -745,7 +743,7 @@
   .welcome-content {
       z-index: 1;
       position: relative;
-      animation: slideInUp 1s ease-in-out 1s;
+      animation: slideInUp 1s ease-in-out 0.1s;
       max-width: 100%;
   }
 
@@ -762,7 +760,7 @@
   .welcome-description {
       font-size: 1.2rem;
       font-weight: 300;
-      margin-bottom: 2rem;
+
       max-width: 600px;
       margin: 0 auto;
   }
@@ -776,6 +774,7 @@
       letter-spacing: 2px;
       padding: 10px 30px;
       transition: background-color 0.3s ease;
+      margin: 20px;
   }
 
   .btn-primary:hover {
