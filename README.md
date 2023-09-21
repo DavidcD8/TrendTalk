@@ -18,6 +18,10 @@
 
 The TrendTalk Blog application is a Django-based web application that enables users to create, view, and manage blog posts. This README outlines the key components and configurations used in the application.
 
+# About TrendTalk
+
+TrendTalk is a passionate community of gamers, tech enthusiasts, and trendsetters who share a common love for all things gaming and technology. Our mission is to provide you with timely news, in-depth reviews, captivating articles, and thought-provoking discussions that revolve around the ever-evolving realms of gaming and tech.
+
 # Features
 
 - Create, edit, and delete blog posts
@@ -148,11 +152,11 @@ The application includes security measures such as CSRF protection and password 
 - Configure the Database
   - Configure the database on Heroku.
 
-## Deployed website Link
+# Deployed website Link
 
 <https://trendtalk-010e54eb3de6.herokuapp.com>
 
-## Manual Testing
+# Manual Testing
 
 **Project Overview**
 
@@ -282,7 +286,7 @@ Test Case 7: Comment on posts
 
 - Test Case 4: Passed
 
-## Bugs Fixed:
+# Bugs Fixed:
 
 - Error 500 :
   - I Fixed by using the following guide from: <https://stackoverflow.com/questions/61184031/post-save-signal-for-specific-profile-model-for-user-registration>
