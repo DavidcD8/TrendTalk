@@ -9,6 +9,10 @@
 - Static Files and Media
 - Security
 - Configuration
+- Deployment
+- Deployed link
+- Manual Testing
+- Bugs Fixed
 
 # Overview
 
