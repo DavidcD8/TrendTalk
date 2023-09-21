@@ -21,7 +21,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['trendtalk-010e54eb3de6.herokuapp.com',
                  '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com']

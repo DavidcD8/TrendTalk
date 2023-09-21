@@ -456,17 +456,15 @@
   .clear {
       clear: both;
   }
-/* Remove underline from links */
-.blog-post-card a {
-    text-decoration: none;
-}
 
-/* Optional: Define styles for links on hover */
-.blog-post-card a:hover {
-    text-decoration: none;
-    /* Remove underline on hover */
-    /* Add any other hover styles you want */
-}
+  .blog-post-card a {
+      text-decoration: none;
+  }
+
+  .blog-post-card a:hover {
+      text-decoration: none;
+
+  }
 
   #------------------------Post-List-Page------------------------- .blog-post-card {
       display: flex;
@@ -483,7 +481,6 @@
       flex: 1;
       max-width: 100%;
       max-height: 238px;
-      /* Limit the maximum height */
       position: relative;
       background-size: cover;
       background-repeat: no-repeat;
@@ -495,7 +492,7 @@
       height: auto;
       max-height: 238px;
       object-fit: cover;
-      border-radius: 5px 0 0 5px;
+      border-radius: 5px 5px 0 0;
   }
 
   .blog-post-content {
@@ -535,10 +532,7 @@
       border-top: 1px solid #ddd;
   }
 
-  #-------------------------------Profile------------------------------
-
-  /* Custom styles for the post detail page */
-  .post-container {
+  #-------------------------------Profile------------------------------ .post-container {
       max-width: 800px;
       margin: 0 auto;
       padding: 20px;
@@ -608,10 +602,7 @@
   }
 
 
-  #------------------------edit_profile---------------------------
-
-  /* Custom styles for the edit profile page */
-  .profile-container {
+  #------------------------edit_profile--------------------------- .profile-container {
       max-width: 500px;
       margin: 0 auto;
       padding: 30px;
@@ -672,10 +663,7 @@
       }
   }
 
-  #----------------welcome_page-----------------
-
-  /* Reset some default styles */
-  * {
+  #----------------welcome_page----------------- * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -771,11 +759,9 @@
   @media (max-width: 768px) {
       .welcome-title {
           font-size: 2rem;
-          /* Decrease font size for smaller screens */
       }
 
       .welcome-description {
           font-size: 1rem;
-          /* Decrease font size for smaller screens */
       }
   }
