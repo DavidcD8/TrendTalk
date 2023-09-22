@@ -1,8 +1,7 @@
   .navbar-light .navbar-brand {
       color: rgba(255, 255, 255, 0.9);
       font-size: x-large;
-      font-family: 'Kenia',
-          cursive;
+      font-family: 'Play', sans-serif;
   }
 
 
@@ -179,6 +178,45 @@
       border: solid 1px rgb(225, 225, 225);
   }
 
+
+  /* Customize the navbar toggler button */
+  .navbar-toggler {
+      padding: 10px 15px;
+      font-size: 18px;
+      line-height: 1;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+
+  /* Change the background color on hover */
+  .navbar-toggler:hover {
+      background-color: #fff;
+      border-color: #fff;
+      transform: scale(1.05);
+
+  }
+
+  /* Customize the navbar toggler button */
+  .navbar-toggler {
+      padding: 10px 15px;
+      font-size: 18px;
+      line-height: 1;
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid transparent;
+      border-radius: 2px;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+
+  /* Change the background color on hover */
+  .navbar-toggler:hover {
+      background-color: #fff;
+      border-color: #fff;
+      transform: scale(1.05);
+  }
 
 
   .post-divider {
