@@ -13,6 +13,7 @@
 - Deployed link
 - Manual Testing
 - Bugs Fixed
+- Code validator results
 
 # Overview
 
@@ -290,3 +291,19 @@ Test Case 7: Comment on posts
 
 - Error 500 :
   - I Fixed by using the following guide from: <https://stackoverflow.com/questions/61184031/post-save-signal-for-specific-profile-model-for-user-registration>
+
+# Code Validator Results
+
+I have validated My project's CSS and HTML code to ensure compliance with standards. Both the CSS and HTML code passed validation with no errors or warnings.
+
+### Validation Screenshots
+
+- Here are screenshots of the clean validation results:
+
+## HTML Code Validator
+
+![HTML Validation](trendtalk/validator_screenshot/css.png)
+
+## CSS Code Validator
+
+![CSS Validation](trendtalk/validator_screenshot/html.png)

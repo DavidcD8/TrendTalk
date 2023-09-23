@@ -74,15 +74,13 @@
       <hr />
       &nbsp;
       <p>
-        <strong>&nbsp;on Post: </strong
-        ><a href="{% url 'post_detail' comment.post.slug %}"
+        <strong>On Post:</strong>
+        <a href="{% url 'post_detail' comment.post.slug %}"
           >{{ comment.post.title }}</a
         >
       </p>
     </div>
-
     {% endif %} {% endfor %}
   </div>
-
-  {% endblock %}
 </div>
+{% endblock %}
