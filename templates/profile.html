@@ -6,6 +6,7 @@
 />
 <div class="profile-container">
   <div class="profile-header">
+    <!-- Profile Photo Frame -->
     <div class="profile-photo-frame">
       {% if request.user.profile.profile_photo %}
       <img
@@ -14,18 +15,21 @@
         class="profile-photo"
       />
       {% else %}
+      <!-- Profile Photo -->
       <div class="default-profile-photo">
         <span>No profile photo yet.</span>
       </div>
       {% endif %}
     </div>
-
+    <!-- The Profile Info -->
     <div class="profile-info">
+      <!-- The Welcome Message -->
       <h1 class="profile-welcome animate__animated animate__fadeInUp">
         Welcome, {{ user.username }}!
       </h1>
     </div>
   </div>
+  <!-- Liked Posts List -->
   <div class="comments-list" style="margin-top: 20px">
     <h2 class="animate__animated animate__fadeIn">Liked Posts</h2>
     {% for liked_post in user.blogpost_like.all %}
@@ -44,6 +48,7 @@
     </div>
     {% endfor %}
   </div>
+  <!-- Commented Posts List -->
   <div class="comments-list" style="margin-top: 20px">
     <h2 class="animate__animated animate__fadeIn">Commented Posts</h2>
 
@@ -52,6 +57,7 @@
       class="comment animate__animated animate__fadeIn"
       style="margin-bottom: 20px"
     >
+      <!-- User's Profile Photo -->
       <div class="comment-info">
         <div class="user-photo-frame">
           {% if request.user.profile.profile_photo %}
@@ -62,6 +68,8 @@
           />
           {% endif %}
         </div>
+        <!-- Comment Details -->
+
         <div class="comment-details">
           <p class="comment-name">
             {{ comment.name }}
@@ -70,6 +78,8 @@
           </p>
         </div>
       </div>
+
+      <!-- Comment Body -->
       <p class="comment-body">{{ comment.body }}</p>
       <hr />
       &nbsp;

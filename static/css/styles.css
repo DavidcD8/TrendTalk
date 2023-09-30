@@ -116,6 +116,11 @@
       color: rgb(238, 133, 20);
   }
 
+
+  .custom-heart {
+      color: red;
+  }
+
   .custom-image {
       width: 10%;
   }

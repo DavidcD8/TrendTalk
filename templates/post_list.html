@@ -4,23 +4,28 @@
 <hr />
 <div class="row">
   <div class="col-md-8">
-    {% for post in posts %}
+    {% for post in posts %}<!-- This will loop through each post -->
     <div class="post animate__animated animate__fadeIn fade-in blog-post-card">
-      <a href="{% url 'post_detail' slug=post.slug %}">
+      <a href="{% url 'post_detail' slug=post.slug %}"
+        ><!-- will redirect to Post Detail Page -->
         <div class="card mb-4 shadow-sm">
           <div class="blog-post-image">
+            <!-- Featured Image -->
             <img
               src="{{ post.featured_image.url }}"
               alt="{{ post.title }}"
               class="custom-image"
             />
           </div>
+          <!-- Post Content -->
           <div class="card-body blog-post-content">
             <h2 class="card-title">{{ post.title }}</h2>
+            <!-- The Post Title -->
             <div class="post-details">
               <div class="btn-group"></div>
               <small class="text-muted">{{ post.created_on }}</small>
             </div>
+            <!-- Post Author -->
             <div class="post-author">
               <span class="text-muted">Author: {{ post.author }}</span>
             </div>

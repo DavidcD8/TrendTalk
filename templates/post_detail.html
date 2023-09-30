@@ -3,18 +3,22 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+
+<!-- Container for Post Details -->
 <div class="contain-all2">
     <div class="masthead">
         <div class="container">
             <div class="row g-0">
                 <div class="col-md-6 masthead-text">
                     <h1 class="post-title">{{ post.title }}</h1>
-                    {% if post.author.is_staff %}
+                    {% if post.author.is_staff %} <!-- Display author's profile photo  -->
+
                     <div class="comment-user-photo">
                         <img src="{{ post.author.profile.profile_photo.url }}"
                             alt="{{ post.author.username }}'s Profile Photo">
                     </div>
                     {% endif %}
+                        <!-- Will show Author and Created Date -->
                     <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
                 </div>
             </div>
@@ -24,7 +28,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8"><!-- Post Content -->
+
             <div class="mb-4 mt-3">
                 <div class="card-body2">
                     {{ post.content | safe }}
@@ -37,11 +42,12 @@
     <hr>
     <div class="row">
         <div class="col">
-            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST"><!-- Form to Like the Post -->
+
                 {% csrf_token %}
                 {% if liked %}
                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                    <i class="fas fa-heart"></i>
+                    <i class= "fas fa-heart custom-heart"></i><!-- Empty heart icon for unliking -->
                 </button>
                 {% else %}
                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
@@ -57,16 +63,18 @@
     <hr>
     <div class="contain-all2">
         <div class="col-md-8">
-            <h3 class="comment-title">Add a comment:</h3>
+            <h3 class="comment-title">Add a comment:</h3><!-- The Add a Comment Section -->
             <div class="comment-form">
                 {% if commented %}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert"><!-- Display a success alert if a comment is awaiting approval but has been removed to make user experience easier -->
+
                     Your comment is awaiting approval
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
                 <p class="commenting-as">Commenting as: {{ user.username }}</p>
-                <form method="post" class="comment-form">
+                <form method="post" class="comment-form"><!-- Form to Post a Comment -->
+
                     {% csrf_token %}
                     {{ comment_form | crispy }}
                     <button type="submit" class="btn-submit-comment">
@@ -79,15 +87,16 @@
         </div>
     </div>
     <br>
-    <div class="contain-all3">
+    <div class="contain-all3"><!-- Displays Comments -->
+
         <div class="row">
             <div class="col-md-8">
-                <h3 class="comment-title">Comments:</h3>
+                <h3 class="comment-title">Comments:</h3><!-- Title for Comments Section -->
                 <div class="comments-section">
-                    {% for comment in comments %}
+                    {% for comment in comments %}<!--  Comment Box -->
                     <div class="comment-box">
                         <div class="comment-user-photo">
-                            {% if comment.user.profile.profile_photo %}
+                            {% if comment.user.profile.profile_photo %}<!-- Display commenter's profile photo if available -->
                             <img src="{{ comment.user.profile.profile_photo.url }}"
                                 alt="{{ comment.user.username }}'s Profile Photo" />
                             {% endif %}
@@ -100,7 +109,7 @@
                             </p>
                             {{ comment.body | linebreaks }}
                             <div class="comment-actions">
-                                {% if user.is_authenticated and comment.user == user %}
+                                {% if user.is_authenticated and comment.user == user %}<!-- Add edit and delete buttons for the users if authenticated -->
                                 <a class="action-button edit-button" href="{% url 'edit_comment' comment.id %}">Edit</a>
                                 <a class="action-button delete-button"
                                     href="{% url 'delete_comment' comment.id %}">Delete</a>
