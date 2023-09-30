@@ -52,15 +52,14 @@
             {% if user.is_authenticated %}
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout' %}"
-                ><i class="fas fa-sign-out-alt"></i> Logout</a
-              >
+              <a class="nav-link" href="{% url 'welcome' %}">
+                <i class="fas fa-home"></i> Home
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'welcome' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">Articles</a>
+              <a class="nav-link" href="/">
+                <i class="fas fa-newspaper"></i> Articles
+              </a>
             </li>
 
             <li class="nav-item">
@@ -71,6 +70,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'settings' %}"
                 ><i class="fas fa-cog"></i> Settings</a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}"
+                ><i class="fas fa-sign-out-alt"></i> Logout</a
               >
             </li>
             {% else %}

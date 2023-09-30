@@ -3,29 +3,33 @@
 <h1>Articles</h1>
 <hr />
 <div class="row">
-    <div class="col-md-8">
-        {% for post in posts %}
-        <div class="post animate__animated animate__fadeIn fade-in blog-post-card">
-            <a href="{% url 'post_detail' slug=post.slug %}">
-                <div class="card mb-4 shadow-sm">
-                    <div class="blog-post-image">
-                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="custom-image" />
-                    </div>
-                    <div class="card-body blog-post-content">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <div class="post-details">
-                            <div class="btn-group"></div>
-                            <small class="text-muted">{{ post.created_on }}</small>
-                        </div>
-                        <div class="post-author">
-                            <span class="text-muted">Author: {{ post.author }}</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
+  <div class="col-md-8">
+    {% for post in posts %}
+    <div class="post animate__animated animate__fadeIn fade-in blog-post-card">
+      <a href="{% url 'post_detail' slug=post.slug %}">
+        <div class="card mb-4 shadow-sm">
+          <div class="blog-post-image">
+            <img
+              src="{{ post.featured_image.url }}"
+              alt="{{ post.title }}"
+              class="custom-image"
+            />
+          </div>
+          <div class="card-body blog-post-content">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <div class="post-details">
+              <div class="btn-group"></div>
+              <small class="text-muted">{{ post.created_on }}</small>
+            </div>
+            <div class="post-author">
+              <span class="text-muted">Author: {{ post.author }}</span>
+            </div>
+          </div>
         </div>
-        {% endfor %}
+      </a>
     </div>
+    {% endfor %}
+  </div>
 </div>
 
 <div class="separator"></div>

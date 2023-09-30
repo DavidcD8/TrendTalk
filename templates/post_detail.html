@@ -99,7 +99,6 @@
                                 wrote:
                             </p>
                             {{ comment.body | linebreaks }}
-                            <!-- Removed unnecessary <p> tags -->
                             <div class="comment-actions">
                                 {% if user.is_authenticated and comment.user == user %}
                                 <a class="action-button edit-button" href="{% url 'edit_comment' comment.id %}">Edit</a>

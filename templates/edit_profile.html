@@ -3,6 +3,6 @@
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %} {{ form.as_p }}
   <div class="form-group"></div>
-  <button type="submit">Save Changes</button>
+  <button class="btn btn-primary" type="submit">Save Changes</button>
 </form>
 {% endblock %}

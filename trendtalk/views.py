@@ -1,26 +1,19 @@
 from django.http import Http404
-from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ProfileEditForm
-from .models import Comment
 from django.shortcuts import render
+from .forms import ProfileEditForm
 from .models import Post
 from django.urls import reverse
 from django.shortcuts import redirect, get_object_or_404
 from .forms import CommentForm
 from django.contrib.auth.forms import UserChangeForm
-from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib import messages
-from .models import Post, Comment
-from django.shortcuts import redirect
+from .models import Comment
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
 from .models import Profile
-from trendtalk.models import Post
-from django.views import generic
 
 
 class WelcomeView(generic.TemplateView):
@@ -79,6 +72,7 @@ class PostDetailView(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            return HttpResponseRedirect(request.path_info)
 
         else:
             comment_form = CommentForm()
