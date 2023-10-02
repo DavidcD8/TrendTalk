@@ -1,3 +1,4 @@
+# The imports for urls go here
 from django.contrib import admin
 from django.urls import path, include
 from trendtalk import views

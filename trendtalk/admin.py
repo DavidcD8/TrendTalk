@@ -7,7 +7,7 @@ from .forms import UserAdminForm
 from django.contrib.auth.models import User
 
 
-class CustomUserAdmin(UserAdmin):
+class CustomUserAdmin(UserAdmin):  # This is a custom form
     form = UserAdminForm
 
     fieldsets = (

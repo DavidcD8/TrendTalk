@@ -5,8 +5,10 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.core.exceptions import ValidationError
 from PIL import Image
-
+# Define choices for the status of a Post
 STATUS = ((0, "Draft"), (1, "Published"))
+
+# Define the user profile model
 
 
 class Profile(models.Model):
@@ -19,16 +21,22 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+# Create a user profile when a new User is created
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
+# Save the user profile when a User is saved
+
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+# Define the Post model
 
 
 class Post(models.Model):
@@ -54,6 +62,8 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+# Define the Comment model
 
 
 class Comment(models.Model):

@@ -16,11 +16,13 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 
-class WelcomeView(generic.TemplateView):
+class WelcomeView(generic.TemplateView):  # Welcome Page view
+
     template_name = 'welcome.html'
 
 
-class PostListView(generic.ListView):
+class PostListView(generic.ListView):  # View for all Posts
+
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "post_list.html"
@@ -28,7 +30,7 @@ class PostListView(generic.ListView):
     paginate_by = 10
 
 
-class PostDetailView(View):
+class PostDetailView(View):  # View for the post details
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -90,7 +92,7 @@ class PostDetailView(View):
         )
 
 
-@login_required
+@login_required  # View for handling post likes
 def post_like(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if post.likes.filter(id=request.user.id).exists():
@@ -99,6 +101,8 @@ def post_like(request, slug):
         post.likes.add(request.user)
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+# View for handling post unlikes
 
 
 class PostUnlikeView(View):
@@ -109,6 +113,8 @@ class PostUnlikeView(View):
             post.likes.remove(request.user)
         return redirect('post_detail', slug=slug)
 
+# View for user profile
+
 
 @login_required
 def profile(request):
@@ -118,10 +124,14 @@ def profile(request):
     }
     return render(request, 'profile.html', context)
 
+# View for user settings
+
 
 @login_required
 def settings(request):
     return render(request, 'settings.html')
+
+# View for editing user profile
 
 
 @login_required
@@ -142,6 +152,8 @@ def edit_profile(request):
 
     return render(request, 'edit_profile.html', {'form': form})
 
+# View for editing a comment
+
 
 @login_required
 def edit_comment(request, comment_id):
@@ -160,6 +172,8 @@ def edit_comment(request, comment_id):
         form = CommentForm(instance=comment)
 
     return render(request, 'edit_comment.html', {'form': form, 'comment': comment})
+
+# View for deleting a comment
 
 
 @login_required
