@@ -69,6 +69,14 @@ The application requires the following packages and libraries to be installed:
 - Sqlparse 0.4.4
 - Urllib3 1.26.16
 
+# Design Process
+
+- Wireframes
+
+![Wireframe 1](trendtalk/validator_screenshot/wireframe1.png)
+![Wireframe 2](trendtalk/validator_screenshot/wireframe2.png)
+![Wireframe 3](trendtalk/validator_screenshot/wireframe3.png)
+
 # Getting Started
 
 To set up and run the TrendTalk Blog application locally, follow these steps:
@@ -307,3 +315,7 @@ I have validated My project's CSS and HTML code to ensure compliance with standa
 ## CSS Code Validator
 
 ![CSS Validation](trendtalk/validator_screenshot/html.png)
+
+## CSS Code Validator
+
+![Python Validation](trendtalk/validator_screenshot/python.png)
