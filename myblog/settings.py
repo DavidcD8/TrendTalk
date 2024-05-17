@@ -23,6 +23,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['trendtalk-010e54eb3de6.herokuapp.com',
+    '8000-davidcd8-trendtalk-z6y754ymlx.us1.codeanyapp.com',
                  '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
