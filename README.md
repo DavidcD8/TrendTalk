@@ -163,7 +163,7 @@ The application includes security measures such as CSRF protection and password 
 
 # Deployed website Link
 
-<https://trendtalk-010e54eb3de6.herokuapp.com>
+<https://trendtalk-4b4a09b813a1.herokuapp.com>
 
 # Manual Testing
 
