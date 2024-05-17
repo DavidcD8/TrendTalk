@@ -22,7 +22,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://trendtalk-4b4a09b813a1.herokuapp.com',
+ALLOWED_HOSTS = ['.herokuapp.com','https://trendtalk-4b4a09b813a1.herokuapp.com',
     '8000-davidcd8-trendtalk-z6y754ymlx.us1.codeanyapp.com',
                  '8000-davidcd8-trendtalk-iils79uuma.us2.codeanyapp.com', '8000-davidcd8-trendtalk-ba8jlquisf.us2.codeanyapp.com']
 
